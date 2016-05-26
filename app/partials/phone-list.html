@@ -1,0 +1,38 @@
+  <div class="row">
+    <div class="col-md-2">
+      <p>Search:</p>
+      <input class="form-control" ng-model="query" placeholder="eg. nexus s">
+      <br>
+      <p>Sort By:</p>
+      <select class="form-control" ng-model="orderProp">
+        <option value="age">Newest</option>
+        <option value="name">Alphabetical</option>
+      </select>
+      <br>
+      <!-- <pre>
+      {{phones | filter:query | orderBy:orderProp | json}}
+    </pre> -->
+
+  </div>
+
+  <div class="col-md-10">
+    <div class="panel panel-primary phonesPanel" ng-repeat="phone in phones | orderBy:orderProp | filter:query as results">
+      <div class="panel-heading">
+        <a class="phoneTitle" href="#/phones/{{phone.id}}">{{phone.name}}</a>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-2">
+            <a href="#/phones/{{phone.id}}"><img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" width="100" height="100" /></a>
+          </div>
+          <div class="col-md-10">
+            {{phone.snippet}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-danger text-center" ng-if="!results.length">
+      <strong>No result found for {{query}}</strong>
+    </div>
+  </div>
+</div>

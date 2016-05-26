@@ -1,0 +1,125 @@
+<section ng-controller="TabController">
+  <ul class="nav nav-tabs">
+    <li ng-class="{active:isSelected(1)}"><a href ng-click="setTab(1)">Description</a></li>
+    <li ng-class="{active:isSelected(2)}"><a href ng-click="setTab(2)">Specifications</a></li>
+    <li ng-class="{active:isSelected(3)}"><a href ng-click="setTab(3)">Reviews</a></li>
+  </ul>
+  <div class="row">
+    <div class="col-md-12" ng-show="isSelected(1)">
+      <br>
+      <strong>Description</strong>
+      <p>{{phone.description}}</p>
+
+      <strong>Additional features</strong>
+      <p>{{phone.additionalFeatures}}</p>
+      <strong>Android</strong>
+      <p>{{phone.android.os}}</p>
+
+      <strong >Availabilty / Networks</strong><br>
+      <p style="display:inline-block" ng-repeat="network in phone.availability">{{network}}</p>
+    </div>
+    <div class="col-md-12" ng-show = "isSelected(2)">
+      <br>
+      <div class="col-md-4">
+        <!-- connectivity details -->
+        <strong>Connectivity</strong>
+        <p></p>
+        <strong>Bluetooth</strong>
+        <p>{{phone.connectivity.bluetooth}}</p>
+        <strong>Cell</strong>
+        <p>{{phone.connectivity.cell}}</p>
+        <strong>GPS</strong>
+        <p>{{phone.connectivity.gps | checkmark}}</p>
+        <strong>Infrared</strong>
+        <p>{{phone.connectivity.infrared | checkmark}}</p>
+        <strong>WiFi</strong>
+        <p>{{phone.connectivity.wifi}}</p>
+        <!-- Displaydetails -->
+        <strong>Display</strong>
+        <strong>Screen resolution</strong>
+        <p>{{phone.display.screenResolution}}</p>
+        <strong>Screen size</strong>
+        <p>{{phone.display.screenSize}}</p>
+        <strong>Touch screen</strong>
+        <p>{{phone.display.touchScreen | checkmark}}</p>
+      </div>
+      <div class="col-md-4">
+        <!-- battery details -->
+        <strong>Battery</strong>
+        <p></p>
+        <strong>Type</strong>
+        <p>{{phone.battery.type}}</p>
+        <strong>Standby time</strong>
+        <p>{{phone.battery.standbyTime}}</p>
+        <strong>Talktime</strong>
+        <p>{{phone.battery.talkTime}}</p>
+        <!-- hardware details -->
+        <strong>Hardware</strong><br>
+        <strong>Accelerometer</strong>
+        <p>{{phone.hardware.accelerometer | checkmark}}</p>
+        <strong>Audio Jack</strong>
+        <p>{{phone.hardware.audioJack}}</p>
+        <strong>CPU</strong>
+        <p>{{phone.hardware.cpu}}</p>
+        <strong>FM radio</strong>
+        <p>{{phone.hardware.fmRadio | checkmark}}</p>
+        <strong>Physical Keyboard</strong>
+        <p>{{phone.hardware.physicalKeyboard | checkmark}}</p>
+        <strong>USB</strong>
+        <p>{{phone.hardware.usb}}</p>
+      </div>
+      <div class="col-md-4">
+        <!-- storage details -->
+        <strong>Storage</strong><p></p>
+        <strong>Flash</strong>
+        <p>{{phone.storage.flash}}</p>
+        <strong>RAM</strong>
+        <p>{{phone.storage.ram}}</p>
+        <!-- size details -->
+        <strong>Size and weight</strong>
+        <p ng-repeat="dimension in phone.sizeAndWeight.dimensions">{{dimension}}</p>
+        <!-- camera details  -->
+        <strong>Camera</strong><p></p>
+        <strong>Features</strong>
+        <p ng-repeat="feature in phone.camera.features">{{feature}}</p>
+        <strong>Primary</strong>
+        <p>{{phone.camera.primary}}</p>
+      </div>
+    </div>
+    <div class="col-md-12" ng-show ="isSelected(3)" ng-controller="ReviewController">
+      <br>
+      <strong>Reviews</strong>
+      <p></p>
+      <section ng-repeat="review in reviews">
+        <strong>Stars: {{review.stars}}</strong>
+        <p>{{review.body}}</p>
+        <p>by: {{review.author}}</p>
+      </section>
+      <section>
+        <strong ng-show="reviews.star">{{"Stars: "+reviews.star}}</strong>
+        <p ng-show="reviews.body">{{reviews.body}}</p>
+        <p ng-show="reviews.author">{{"by: "+reviews.author}}</p>
+      </section>
+        <br>
+        <strong>Submit a review</strong>
+        <form name="reviewForm" ng-submit="reviewForm.$valid && addReview()" novalidate>
+          <select class="form-control" ng-model="reviews.star" required>
+              <!-- <option ng-value="{{star}}" ng-repeat="star in [1,2,3,4,5]">{{star}}</option> -->
+              <option>1 star</option>
+              <option>2 stars</option>
+              <option>3 stars</option>
+              <option>4 stars</option>
+              <option>5 stars</option>
+          </select>
+          <p></p>
+            <textarea class="form-control" rows="2" placeholder="Write a short review of the product.." ng-model="reviews.body" required></textarea>
+            <p></p>
+            <input type="email" class="form-control" placeholder="name@email.com" ng-model="reviews.author" required>
+            <p></p>
+            <input type="submit" value="Submit" class="btn btn-primary pull-right">
+      </form>
+    </div>
+  </div>
+</div>
+
+</section>
