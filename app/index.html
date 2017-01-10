@@ -1,22 +1,25 @@
 <!doctype html>
 <html lang="en" ng-app='phonecatApp'>
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <title>Google Phone Gallery</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="css/app.css">
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="js/app.js" charset="utf-8"></script>
-  <script src="js/controllers.js" charset="utf-8"></script>
-  <script src="js/filters.js" charset="utf-8"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Google Phone Gallery</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/controllers.js" charset="utf-8"></script>
+    <script src="js/filters.js" charset="utf-8"></script>
 </head>
+
 <body>
-<div class="container">
-  <h4 class="text-center">Phone Gallery</h4>
-  <hr>
-<div ng-view></div>
-</div>
+    <div class="container">
+        <h4 class="text-center">Phone Gallery</h4>
+        <hr>
+        <div ng-view></div>
+    </div>
 </body>
+
 </html>

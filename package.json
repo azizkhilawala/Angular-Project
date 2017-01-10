@@ -1,6 +1,8 @@
 {
-  "version": "0.0.0",
+  "title": "AngularJSPhoneGallery",
+  "version": "1.0.0",
   "private": true,
+  "author":"Aziz Khilawala",
   "name": "angular-phonecat",
   "description": "A tutorial application for AngularJS",
   "repository": "https://github.com/angular/angular-phonecat",
@@ -15,7 +17,16 @@
     "karma-jasmine": "~0.1.0",
     "protractor": "^2.1.0",
     "shelljs": "^0.2.6",
-    "tmp": "0.0.23"
+    "tmp": "0.0.23",
+    "browser-sync": "^2.13.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-image-resize": "^0.11.0",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4"
   },
   "scripts": {
     "postinstall": "bower install",
